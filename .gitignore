@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Source data lives outside the repo (shared Dropbox folder)
+data/raw/
+*.zip
+*.tsv
+
+# macOS
+.DS_Store
