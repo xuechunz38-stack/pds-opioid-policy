@@ -36,3 +36,17 @@ git lfs install
 - Work on a feature branch and merge into `main` through a reviewed pull request.
 - Write code as `.py` scripts, not notebooks.
 - Never modify source data; write cleaned outputs to `data/intermediate/`.
+
+### Clean mortality data
+
+Run the mortality cleaner with the course Vital Statistics ZIP and an output path:
+
+```bash
+python code/02_mortality_clean.py ~/pds-data/US_VitalStatistics.zip \
+  data/intermediate/mortality_county_year.parquet
+```
+
+The output contains one row per county-year, keyed by five-digit county FIPS,
+with `drug_overdose_deaths` summed across CDC cause codes D1-D4 (all drug
+poisoning intents; not opioid-specific). Explicit `Missing` counts remain null;
+county-years with no D1-D4 records are assigned zero.
